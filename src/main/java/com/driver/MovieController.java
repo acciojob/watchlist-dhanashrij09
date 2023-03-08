@@ -20,7 +20,7 @@ return new ResponseEntity<>("New movie added successfully", HttpStatus.CREATED);
 }
 
 @PostMapping ("/add-director")
-    public ResponseEntity<String> addDirector(@RequestBody Director director) {
+    public ResponseEntity<String> addDirector(@RequestBody Director director){
     movieService.addDirector(director);
 return new ResponseEntity<>("New director added successfully",HttpStatus.CREATED);
 }
@@ -60,11 +60,9 @@ return new ResponseEntity<>("New director added successfully",HttpStatus.CREATED
     return new ResponseEntity<>(name + "removed successfully",HttpStatus.CREATED);
 }
 
-    @DeleteMapping ("/delete-all-directors")
+@DeleteMapping ("/delete-all-directors")
     public ResponseEntity<String> deleteAllDirectors(){
         movieService.deleteAllDirectors();
         return new ResponseEntity<>( "All directors deleted successfully",HttpStatus.CREATED);
     }
-
-
 }
