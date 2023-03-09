@@ -38,7 +38,7 @@ return new ResponseEntity<>("New director added successfully",HttpStatus.CREATED
 }
 
 @GetMapping ("/get-director-by-name")
-    public ResponseEntity<Director> getsDirectorByName(@PathVariable String name) {
+    public ResponseEntity<Director> getDirectorByName(@PathVariable String name) {
     Director director = movieService.getDirectorByName(name);
     return new ResponseEntity<>(director,HttpStatus.CREATED);
 }
