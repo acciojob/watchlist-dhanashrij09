@@ -31,19 +31,19 @@ return new ResponseEntity<>("New director added successfully",HttpStatus.CREATED
     return new ResponseEntity<>("New director added successfully",HttpStatus.CREATED);
 }
 
-@GetMapping ("/get-movie-by-name")
+@GetMapping ("/get-movie-by-name/{name}")
     public ResponseEntity<Movie> getMovieByName(@PathVariable String name){
     Movie movie = movieService.getMovieByName(name);
     return new ResponseEntity<>(movie,HttpStatus.CREATED);
 }
 
-@GetMapping ("/get-director-by-name")
+@GetMapping ("/get-director-by-name/{name}")
     public ResponseEntity<Director> getDirectorByName(@PathVariable String name) {
     Director director = movieService.getDirectorByName(name);
     return new ResponseEntity<>(director,HttpStatus.CREATED);
 }
 
-@GetMapping ("/get-movies-by-director-name")
+@GetMapping ("/get-movies-by-director-name/{name}")
     public ResponseEntity<List<String>>getMoviesByDirectorName(@PathVariable String name) {
         List<String> movies = movieService.getMoviesByDirectorName(name);
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
