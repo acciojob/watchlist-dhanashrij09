@@ -49,10 +49,10 @@ public class MovieRepository {
         return directorMap.get(name);
     }
 
-    public List<String> getMoviesByDirectorName(String name){
+    public List<String> getMoviesByDirectorName(String director){
         List<String> listOfMovies = new ArrayList<>();
-        if(directorMovieMap.containsKey(name)){
-            listOfMovies = directorMovieMap.get(name);
+        if(directorMovieMap.containsKey(director)){
+            listOfMovies = directorMovieMap.get(director);
         }
         return listOfMovies;
     }
@@ -61,20 +61,22 @@ public class MovieRepository {
         return new ArrayList<>(movieMap.keySet());
     }
 
-    public void deleteDirectorByName(String name){
-        if(directorMap.containsKey(name)){
-            directorMap.remove(name);
+    public void deleteDirectorByName(String director) {
+        if (directorMap.containsKey(director)) {
+            directorMap.remove(director);
         }
 
         List<String> movieList = new ArrayList();
-        for(String movie : movieList){
-            if(movieMap.containsKey(movie)){
-                movieMap.remove(movie);
+        if (directorMovieMap.containsKey(director)) {
+            movieList = directorMovieMap.get(director);
+            for (String movie : movieList) {
+                if (movieMap.containsKey(movie)) {
+                    movieMap.remove(movie);
+                }
             }
+            directorMovieMap.remove(director);
         }
-        directorMovieMap.remove(name);
     }
-
     public void deleteAllDirectors(){
       for(String director : directorMovieMap.keySet()){
           for(String movie : directorMovieMap.get(director)){

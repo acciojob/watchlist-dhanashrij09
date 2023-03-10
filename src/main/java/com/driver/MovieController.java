@@ -44,8 +44,8 @@ return new ResponseEntity<>("New director added successfully",HttpStatus.CREATED
 }
 
 @GetMapping ("/get-movies-by-director-name/{name}")
-    public ResponseEntity<List<String>>getMoviesByDirectorName(@PathVariable String name) {
-        List<String> movies = movieService.getMoviesByDirectorName(name);
+    public ResponseEntity<List<String>>getMoviesByDirectorName(@PathVariable String director) {
+        List<String> movies = movieService.getMoviesByDirectorName(director);
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
     @GetMapping ("/get-all-movies")
@@ -55,9 +55,9 @@ return new ResponseEntity<>("New director added successfully",HttpStatus.CREATED
     }
 
 @DeleteMapping ("/delete-director-by-name")
-    public ResponseEntity<String> deleteDirectorByName(@RequestParam String name){
-    movieService.deleteDirectorByName(name);
-    return new ResponseEntity<>(name + "removed successfully",HttpStatus.CREATED);
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam String director){
+    movieService.deleteDirectorByName(director);
+    return new ResponseEntity<>(director + "removed successfully",HttpStatus.CREATED);
 }
 
 @DeleteMapping ("/delete-all-directors")
