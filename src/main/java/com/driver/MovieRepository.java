@@ -66,7 +66,7 @@ public class MovieRepository {
             directorMap.remove(director);
         }
 
-        List<String> movieList = new ArrayList();
+        List<String> movieList = new ArrayList<>();
         if (directorMovieMap.containsKey(director)) {
             movieList = directorMovieMap.get(director);
             for (String movie : movieList) {
